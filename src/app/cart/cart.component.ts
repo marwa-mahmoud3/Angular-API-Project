@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../Models/Product';
 import { ProductCart } from '../Models/ProductCart';
+import { ApiService } from '../Services/api.service';
 import { CartProductService } from '../Services/cart-product.service';
 import { CartService } from '../Services/cart.service';
 
@@ -13,7 +14,7 @@ import { CartService } from '../Services/cart.service';
 export class CartComponent implements OnInit {
   cartProductList:ProductCart[];
   cart:ProductCart;
-  constructor(private cartService:CartService,private cartproductService:CartProductService) { }
+  constructor(private apiservice:ApiService, private cartService:CartService,private cartproductService:CartProductService) { }
   errorMsg="";
   ngOnInit(): void {
     
@@ -33,6 +34,9 @@ export class CartComponent implements OnInit {
     //    alert("falied" +this.errorMsg);    
     //   })
     
+  }
+  logout(){
+    this.apiservice.logout();
   }
   productInCart(cartList:ProductCart)
   {

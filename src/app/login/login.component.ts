@@ -18,8 +18,10 @@ import { LoginUsers } from '../Shared/Login';
     onSubmit(username,password){  
       this.apiService.userAuthintication(username,password).subscribe((data:any)=>{
         localStorage.setItem('userToken',data.access_token);
-        
-        this.router.navigate(["/dashboard"]);
+        if(username=="Marwa" || username=="Reham" || username=="Mona" || username=="Shymaa")
+          this.router.navigate(["/adminpanel"]);
+        else 
+          this.router.navigate(["/dashboard"]);
       },
       (err:HttpErrorResponse)=>{
         this.isLoginError =true;

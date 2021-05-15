@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { CartComponent } from './cart/cart.component';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 const routes: Routes = [
   {path:"Register",component : RegisterComponent},
@@ -25,6 +26,9 @@ const routes: Routes = [
   // {path:'productDetails:/id',component:ProductDetailsComponent},
   {path:'cart',component:CartComponent},
   {path:'wishList',component:WishListComponent},
+  {path:'adminpanel' , component:AdminPanelComponent},
+  {path:'profile' , component:ProfileComponent}
+
 ];
 
 @NgModule({
