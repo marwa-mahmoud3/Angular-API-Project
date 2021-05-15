@@ -18,6 +18,7 @@ import { LoginUsers } from '../Shared/Login';
     onSubmit(username,password){  
       this.apiService.userAuthintication(username,password).subscribe((data:any)=>{
         localStorage.setItem('userToken',data.access_token);
+        
         this.router.navigate(["/dashboard"]);
       },
       (err:HttpErrorResponse)=>{

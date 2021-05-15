@@ -17,8 +17,7 @@ import { LoginUsers } from '../Shared/Login';
 
   userAuthintication(username,password)
   {
-    var data = "username="+username+"&password="+password+"&grant_type=password"; 
-    console.log(data);
+    var data = "username="+username+"&password="+password+"&grant_type=password";
     var reqheader = new HttpHeaders({'Content-Type':'application/x-www-urlencoded'});
     return this.http.post(this.endPoint,data,{headers :reqheader });
   }

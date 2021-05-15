@@ -27,9 +27,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/style.css",
+            "src/styles.css",
+            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "src/style.css",
             "src/assets/css/animate.css",
              "src/assets/css/bootstrap.css",
             "src/assets/css/flex-slider.min.css",
@@ -69,8 +69,6 @@
               "src/assets/js/slicknav.min.js",
               "src/assets/js/waypoints.min.js",
               "src/assets/js/ytplayer.min.js"
-              
-             
             ]
           },
           "configurations": {
@@ -128,7 +126,6 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [

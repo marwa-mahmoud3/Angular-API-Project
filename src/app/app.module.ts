@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApiService } from './Services/api.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ContactComponent } from './contact/contact.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CookieService } from 'ngx-cookie-service';
     SelfproductComponent,
     ShoppingCartComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    ContactComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
