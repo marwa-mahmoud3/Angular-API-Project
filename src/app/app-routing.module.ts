@@ -7,17 +7,24 @@ import { SelfproductComponent } from './selfproduct/selfproduct.component';
 import { AuthGuard } from 'src/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { CartComponent } from './cart/cart.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 const routes: Routes = [
   {path:"Register",component : RegisterComponent},
-  {path:'products/:id' ,component:SelfproductComponent},
   {path:'Home' ,component:ProductComponent},
   {path:"",redirectTo:'/Home' ,pathMatch:'full'},
   {path:'login', component: LoginComponent ,canActivate:[AuthGuard] },
   {path:"dashboard", component: ProfileComponent},
   {path:"Contact Us" , component : ContactComponent},
-  {path:"admin-panel" , component:AdminPanelComponent ,canActivate:[AuthGuard],data:{permittedRoles:['Admin']}}
+  {path:"Register",component : RegisterComponent},
+  {path:'Home' ,component:ProductComponent},
+  {path:"",redirectTo:'/Home' ,pathMatch:'full'},
+  {path:'login', component: LoginComponent ,canActivate:[AuthGuard] },
+  {path:'products/:id',component:SelfproductComponent},
+  // {path:'productDetails:/id',component:ProductDetailsComponent},
+  {path:'cart',component:CartComponent},
+  {path:'wishList',component:WishListComponent},
 ];
 
 @NgModule({

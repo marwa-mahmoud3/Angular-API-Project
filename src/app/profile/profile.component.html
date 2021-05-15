@@ -64,13 +64,13 @@
           <div class="col-lg-2 col-md-3 col-12">
             <div class="right-bar">
               <div class="sinlge-bar">
-                <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                <a href="/wishList" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
               </div>
               <div class="sinlge-bar">
                 <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
               </div>
               <div class="sinlge-bar shopping">
-                <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+                <a href="/cart" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
                 <!-- Shopping Item -->
                 <div class="shopping-item">
                   <div class="dropdown-cart-header">
@@ -259,11 +259,11 @@
                             <div class="button-head" style="border:1px solid #F7941D">
                               <div class="product-action">
                                 <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                <a title="Wishlist" href="#"><i class=" ti-heart "></i><span> Add to Wishlist</span></a>
+                                <a title="Wishlist" (click)="addTowhishList(product)"><i class=" ti-heart "></i><span> Add to Wishlist</span></a>
                                 <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i>&nbsp;&nbsp;&nbsp;<span> Add to Compare</span></a>
                               </div>
                               <div class="product-action-2">
-                                <a title="Add to cart" href="#">&nbsp;&nbsp;&nbsp; Add to cart</a>
+                                <a title="Add to cart" (click)="addToCart(product)">&nbsp;&nbsp;&nbsp; Add to cart</a>
                               </div>
                             </div>
                           </div>

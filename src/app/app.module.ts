@@ -16,6 +16,8 @@ import { ApiService } from './Services/api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ContactComponent } from './contact/contact.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { WishListComponent } from './wish-list/wish-list.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     LoginComponent,
     ProfileComponent,
     ContactComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    WishListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -20,4 +20,11 @@ export class ProductService {
     }));
   
 }
+getProductById(id:any):Observable<IProduct>
+{
+  return this.http.get<IProduct>(this._url+'/'+id).pipe(catchError((err)=>
+  {
+    return throwError(err.message ||"Internal Server error Plz Try Again");
+  }));
+}
 }

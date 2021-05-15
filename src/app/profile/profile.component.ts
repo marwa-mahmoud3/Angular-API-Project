@@ -3,9 +3,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ICategory } from '../Models/Icategory';
 import { IProduct } from '../Models/Product';
 import { ApiService } from '../Services/api.service';
+import { CartService } from '../Services/cart.service';
 import { CategoryService } from '../Services/category.service';
 import { ProductService } from '../Services/product.service';
 import { SelfproductService } from '../Services/selfproduct.service';
+import { WishlistService } from '../Services/wishlist.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,10 +19,9 @@ export class ProfileComponent implements OnInit {
   errorMsg="";
   productList:IProduct[]=[];
   selectedID:any;
-  constructor( private apiservice:ApiService,private category:CategoryService,private activeRouter:ActivatedRoute,private productServices:ProductService,private router:Router,private selfService:SelfproductService) { }
-  logout(){
-    this.apiservice.logout();
-  }
+  product:IProduct;
+  prodId:number;
+  constructor(private apiservice:ApiService, private wishList:WishlistService,private cartService:CartService,private category:CategoryService,private activeRouter:ActivatedRoute,private productServices:ProductService,private router:Router,private selfService:SelfproductService) { }
   ngOnInit(): void {
     this.category.GetAllCategories().subscribe(
       categoryData=>
@@ -57,6 +58,21 @@ export class ProfileComponent implements OnInit {
 
     
   }
+  products:IProduct;
+  gotoDetails(product:IProduct)
+  {
+    let proID:number=product.ID;
+    this.router.navigate(['/productDetails',proID]);
+    this.productServices.getProductById(proID).subscribe(
+      productData=>
+      {
+        this.products=productData;
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      }
+    )}
   goTpProduct(cat:ICategory)
   {
     let CatID:number=cat.ID;
@@ -72,9 +88,50 @@ export class ProfileComponent implements OnInit {
       }  
     )
   }
+  logout(){
+    this.apiservice.logout();
+  }
   isSelected(cat:ICategory)
   {
    return cat.ID=this.selectedID
   }
-
+  cartList:Array<IProduct>=[]
+  addToCart(product:IProduct)
+  {
+    let proID:number=product.ID;
+      this.cartService.addProductToCart(proID).subscribe(
+       (res)=>
+       {
+         alert(res);
+         alert("Added Successfuly");
+       },
+  
+       (errorResponse)=>
+       {
+        this.errorMsg=errorResponse; 
+        alert("falied" +this.errorMsg);    
+       })
+    this.cartList.push(this.product);
+      localStorage.setItem("ProductList", JSON.stringify(this.cartList));
+      console.log(localStorage.getItem("ProductList"));
+  }
+  addTowhishList(product:IProduct)
+  {
+    let proID:number=product.ID;
+      this.wishList.addProductToWishList(proID).subscribe(
+       (res)=>
+       {
+         alert(res);
+         alert("Added Successfuly");
+       },
+  
+       (errorResponse)=>
+       {
+        this.errorMsg=errorResponse; 
+        alert("falied" +this.errorMsg);    
+       })
+    this.cartList.push(this.product);
+      localStorage.setItem("ProductList", JSON.stringify(this.cartList));
+      console.log(localStorage.getItem("ProductList"));
+  }
 }
